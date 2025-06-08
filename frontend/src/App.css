@@ -3,10 +3,29 @@
   --rwanda-blue: #00A1DE;
   --rwanda-yellow: #FFCD00;
   --rwanda-green: #00A651;
+  
+  /* Dark mode Rwanda colors */
+  --rwanda-blue-dark: #0088CC;
+  --rwanda-yellow-dark: #FFD700;
+  --rwanda-green-dark: #009245;
 }
 
 .rwanda-text {
   background: linear-gradient(45deg, var(--rwanda-blue), var(--rwanda-yellow), var(--rwanda-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rwanda-text-light {
+  background: linear-gradient(45deg, #ffffff, var(--rwanda-yellow), #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rwanda-text-dark {
+  background: linear-gradient(45deg, var(--rwanda-blue-dark), var(--rwanda-yellow-dark), var(--rwanda-green-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -40,22 +59,132 @@
   background-color: var(--rwanda-yellow);
 }
 
-/* Hero Section Animation */
+/* Dark mode specific styles */
+.dark .bg-rwanda-blue {
+  background-color: var(--rwanda-blue-dark);
+}
+
+.dark .bg-rwanda-yellow {
+  background-color: var(--rwanda-yellow-dark);
+}
+
+.dark .bg-rwanda-green {
+  background-color: var(--rwanda-green-dark);
+}
+
+.dark .text-rwanda-blue {
+  color: var(--rwanda-blue-dark);
+}
+
+.dark .text-rwanda-yellow {
+  color: var(--rwanda-yellow-dark);
+}
+
+.dark .text-rwanda-green {
+  color: var(--rwanda-green-dark);
+}
+
+/* Hero Section with Video Background Effect */
 .hero-section {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 161, 222, 0.1), rgba(255, 205, 0, 0.1), rgba(0, 166, 81, 0.1));
+  animation: colorShift 8s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes colorShift {
+  0% {
+    background: linear-gradient(45deg, rgba(0, 161, 222, 0.2), rgba(255, 205, 0, 0.1), rgba(0, 166, 81, 0.1));
+  }
+  50% {
+    background: linear-gradient(45deg, rgba(0, 166, 81, 0.2), rgba(0, 161, 222, 0.1), rgba(255, 205, 0, 0.1));
+  }
+  100% {
+    background: linear-gradient(45deg, rgba(255, 205, 0, 0.2), rgba(0, 166, 81, 0.1), rgba(0, 161, 222, 0.1));
+  }
+}
+
+/* Video background simulation */
+.hero-section img {
+  filter: sepia(20%) saturate(120%) hue-rotate(15deg);
+  animation: videoSimulation 15s ease-in-out infinite;
+}
+
+@keyframes videoSimulation {
+  0%, 100% {
+    transform: scale(1) translateX(0);
+    filter: sepia(20%) saturate(120%) hue-rotate(15deg);
+  }
+  25% {
+    transform: scale(1.05) translateX(-2%);
+    filter: sepia(10%) saturate(130%) hue-rotate(10deg);
+  }
+  50% {
+    transform: scale(1.02) translateX(2%);
+    filter: sepia(30%) saturate(110%) hue-rotate(20deg);
+  }
+  75% {
+    transform: scale(1.08) translateX(-1%);
+    filter: sepia(15%) saturate(125%) hue-rotate(5deg);
+  }
+}
+
+/* Auth Modal Styles */
+.auth-modal {
+  backdrop-filter: blur(10px);
+}
+
+.auth-modal img {
+  filter: brightness(0.7) contrast(1.2);
 }
 
 /* Card Animations */
 .hover\:shadow-xl:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   transition: all 0.3s ease;
 }
 
-/* Gradient backgrounds */
-.bg-gradient-to-r {
-  background: linear-gradient(to right, var(--rwanda-blue), var(--rwanda-green));
+/* Dark mode card styles */
+.dark .bg-white {
+  background-color: #1f2937;
+}
+
+.dark .bg-gray-50 {
+  background-color: #111827;
+}
+
+.dark .text-gray-800 {
+  color: #f9fafb;
+}
+
+.dark .text-gray-700 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-600 {
+  color: #9ca3af;
+}
+
+.dark .border-gray-300 {
+  border-color: #4b5563;
+}
+
+/* Gradient backgrounds for dark mode */
+.dark .bg-gradient-to-r {
+  background: linear-gradient(to right, #374151, #1f2937);
 }
 
 /* Smooth transitions */
@@ -72,6 +201,10 @@
   background: #f1f1f1;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: #374151;
+}
+
 ::-webkit-scrollbar-thumb {
   background: var(--rwanda-blue);
   border-radius: 4px;
@@ -79,6 +212,15 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--rwanda-green);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--rwanda-blue-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--rwanda-green-dark);
 }
 
 /* Responsive design improvements */
@@ -135,3 +277,91 @@ button:hover::before {
 .grid > div:nth-child(4) { animation-delay: 0.4s; }
 .grid > div:nth-child(5) { animation-delay: 0.5s; }
 .grid > div:nth-child(6) { animation-delay: 0.6s; }
+
+/* Travel time badge animation */
+.travel-time-badge {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+/* Booking modal animations */
+.booking-modal {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Payment option hover effects */
+.payment-option:hover {
+  background: linear-gradient(45deg, var(--rwanda-blue), var(--rwanda-green));
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Dark mode payment options */
+.dark .payment-option {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+.dark .payment-option:hover {
+  background: linear-gradient(45deg, var(--rwanda-blue-dark), var(--rwanda-green-dark));
+  border-color: var(--rwanda-blue-dark);
+}
+
+/* Enhanced Rwanda nature theme */
+.nature-overlay {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 161, 222, 0.1) 0%,
+    rgba(255, 205, 0, 0.1) 50%,
+    rgba(0, 166, 81, 0.1) 100%
+  );
+  animation: natureFlow 10s ease-in-out infinite;
+}
+
+@keyframes natureFlow {
+  0%, 100% {
+    background: linear-gradient(
+      45deg,
+      rgba(0, 161, 222, 0.1) 0%,
+      rgba(255, 205, 0, 0.1) 50%,
+      rgba(0, 166, 81, 0.1) 100%
+    );
+  }
+  33% {
+    background: linear-gradient(
+      45deg,
+      rgba(0, 166, 81, 0.1) 0%,
+      rgba(0, 161, 222, 0.1) 50%,
+      rgba(255, 205, 0, 0.1) 100%
+    );
+  }
+  66% {
+    background: linear-gradient(
+      45deg,
+      rgba(255, 205, 0, 0.1) 0%,
+      rgba(0, 166, 81, 0.1) 50%,
+      rgba(0, 161, 222, 0.1) 100%
+    );
+  }
+}
