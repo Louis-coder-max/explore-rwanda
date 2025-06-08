@@ -4,10 +4,15 @@
   --rwanda-yellow: #FFCD00;
   --rwanda-green: #00A651;
   
-  /* Dark mode Rwanda colors */
-  --rwanda-blue-dark: #0088CC;
-  --rwanda-yellow-dark: #FFD700;
-  --rwanda-green-dark: #009245;
+  /* Dark mode creative colors - Purple, Pink, Blue theme */
+  --rwanda-blue-dark: #8B5CF6;
+  --rwanda-yellow-dark: #F59E0B;
+  --rwanda-green-dark: #EC4899;
+  --dark-primary: #1F2937;
+  --dark-secondary: #374151;
+  --dark-accent: #7C3AED;
+  --dark-pink: #EC4899;
+  --dark-purple: #8B5CF6;
 }
 
 .rwanda-text {
