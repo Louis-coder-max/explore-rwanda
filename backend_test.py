@@ -157,15 +157,13 @@ class RwandaDiscoveryAPITest(unittest.TestCase):
             # Check if the expected sample events are present
             event_names = [event["name"] for event in data]
             expected_events = [
-                "Africa Universities Summit",
-                "Kigali Peace Marathon"
+                "Africa Universities Summit 2025",
+                "Kigali International Peace Marathon"
             ]
             
             for expected_event in expected_events:
-                self.assertTrue(
-                    any(expected_event in name for name in event_names),
-                    f"Expected event '{expected_event}' not found"
-                )
+                self.assertIn(expected_event, event_names,
+                    f"Expected event '{expected_event}' not found")
             
             print(f"✅ Get all events passed - Found {len(data)} events")
             self.tests_passed += 1
