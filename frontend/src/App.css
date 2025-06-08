@@ -64,21 +64,21 @@
   background-color: var(--rwanda-yellow);
 }
 
-/* Dark mode specific styles */
+/* Dark mode specific styles with creative purple/pink theme */
 .dark .bg-rwanda-blue {
-  background-color: var(--rwanda-blue-dark);
+  background: linear-gradient(135deg, var(--dark-purple), var(--dark-pink));
 }
 
 .dark .bg-rwanda-yellow {
-  background-color: var(--rwanda-yellow-dark);
+  background: linear-gradient(135deg, var(--rwanda-yellow-dark), #FCD34D);
 }
 
 .dark .bg-rwanda-green {
-  background-color: var(--rwanda-green-dark);
+  background: linear-gradient(135deg, var(--dark-pink), var(--dark-purple));
 }
 
 .dark .text-rwanda-blue {
-  color: var(--rwanda-blue-dark);
+  color: var(--dark-purple);
 }
 
 .dark .text-rwanda-yellow {
@@ -86,7 +86,20 @@
 }
 
 .dark .text-rwanda-green {
-  color: var(--rwanda-green-dark);
+  color: var(--dark-pink);
+}
+
+/* Enhanced dark mode backgrounds */
+.dark .bg-gray-900 {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+}
+
+.dark .bg-gray-800 {
+  background: linear-gradient(135deg, #2d1b69, #1a1a2e, #16213e);
+}
+
+.dark .bg-gray-700 {
+  background: linear-gradient(135deg, #4c1d95, #2d1b69, #1e1b4b);
 }
 
 /* Hero Section with Video Background Effect */
